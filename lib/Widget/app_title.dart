@@ -17,13 +17,13 @@ class AppTitle extends StatelessWidget {
           Container(
             alignment: Alignment.centerLeft,
             padding: EdgeInsets.only(top: 30, left: 20),
-            width: MediaQuery.of(context).size.width,
+            width: MediaQuery.of(context).size.width * .8,
             child: Text(
               "Age Calculator",
               style: TextStyle(
                 fontSize: 28,
                 fontWeight: FontWeight.w700,
-                color: textColor,
+                color: Colors.green,
               ),
             ),
           ),

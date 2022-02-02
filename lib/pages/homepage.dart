@@ -1,13 +1,11 @@
 // ignore_for_file: avoid_unnecessary_containers, unnecessary_brace_in_string_interps, unnecessary_string_interpolations, unused_element, unused_local_variable, curly_braces_in_flow_control_structures, use_key_in_widget_constructors
 
-import 'dart:html';
-import 'dart:ui';
-
 import 'package:age_calculator/Widget/app_title.dart';
 import 'package:age_calculator/Widget/datepickerfield.dart';
 import 'package:age_calculator/constant/colors.dart';
 import 'package:age_calculator/global/helper_function.dart';
 import 'package:age_calculator/global/utils.dart';
+import 'package:age_calculator/pages/resultpage.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -21,6 +19,7 @@ class _HomePageState extends State<HomePage> {
     // final double width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Container(
+        margin: EdgeInsets.symmetric(horizontal: 15),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -57,7 +56,6 @@ class _HomePageState extends State<HomePage> {
               lebel: 'Select current Date',
               onTap: () {
                 _selectDate(context, selectedCurrentDate, "CurrentDate");
-                print("najib");
               },
               hintText: "${getFormatedDate(selectedCurrentDate)}",
             ),
@@ -65,18 +63,23 @@ class _HomePageState extends State<HomePage> {
             Container(
               padding: EdgeInsets.symmetric(horizontal: 20),
               height: 56,
-              width: MediaQuery.of(context).size.width,
+              width: MediaQuery.of(context).size.width * .8,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Route route =
+                      MaterialPageRoute(builder: (context) => ResultPage());
+                  Navigator.push(context, route);
+                },
                 child: Text("Calculate",
                     style: TextStyle(
-                      color: textColor,
-                      fontWeight: FontWeight.w800,
+                      fontSize: 22,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w400,
                     )),
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20)),
-                  primary: primaryColor,
+                  // primary: Colors.green,
                   elevation: 10,
                 ),
               ),
